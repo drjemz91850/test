@@ -3,6 +3,14 @@
 import re
 
 
+def get_names(info_: list, info_loc: int):
+    """returns a dictionary if the contacts name with the contact card location"""
+    name_list = []
+    for info in info_:
+        if re.search(r"^FN:", info):
+            name = info.split(":")[1]
+            name_list.append(name)
+    return {info_loc: name_list}
 
 
 def get_tel(info_: list, info_loc: int):
